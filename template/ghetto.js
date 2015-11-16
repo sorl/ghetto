@@ -10,4 +10,4 @@ let ghetto = new Ghetto(config, router)
 // customize your ghetto instance here if needed
 
 
-module.exports = ghetto
+ghetto.run()

@@ -12,11 +12,6 @@ let Handlebars = require('handlebars')
 
 
 switch (argv._[0]) {
-  case 'run':
-    let ghetto = require(path.join(process.cwd(), 'ghetto.js'))
-    ghetto.run(argv.port)
-    break
-
   case 'init':
     let appName = argv._[1]
     let templatePath = path.join(__dirname, 'template')

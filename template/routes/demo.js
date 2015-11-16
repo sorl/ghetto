@@ -1,9 +1,6 @@
 'use strict'
 
 
-require('babel-core/register')
-
-
 exports.index = async function(req, res, next) {
   res.send('YOU ARE IN THE GHETTO NOW.')
 }
