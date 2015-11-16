@@ -27,7 +27,7 @@ class Ghetto {
   }
 
   /**
-  * Configures the ghetto instance
+  * Sets up the ghetto instance
   *
   * @param {Object} config - user configuration options
   */
@@ -39,7 +39,7 @@ class Ghetto {
     this.setupMiddleware()
     this.setupSessions()
     this.setupDB()
-    errorHandler = this.config.errorHandler || errorHandler
+    this.setupErrorHandler()
   }
 
   /**
@@ -109,8 +109,17 @@ class Ghetto {
   * Sets up database
   */
   setupDB() {
-    if(this.config.knex) {
-      this.knex = require('knex')(this.config.knex)
+    if(this.config.knexOptions) {
+      this.knex = require('knex')(this.config.knexOptions)
+    }
+  }
+
+  /**
+  * Sets up the errror handler
+  */
+  setupErrorHandler() {
+    if(this.config.errorHandler) {
+      errorHandler = this.config.errorHandler
     }
   }
 
