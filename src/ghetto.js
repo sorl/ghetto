@@ -10,6 +10,11 @@ let compression = require('compression')
 let bodyParser = require('body-parser')
 
 
+let errorHandler = function(err, req, res, next) {
+  next(err)
+}
+
+
 /**
 * Global class that encapsulates the application
 */
@@ -34,6 +39,7 @@ class Ghetto {
     this.setupMiddleware()
     this.setupSessions()
     this.setupDB()
+    errorHandler = this.config.errorHandler || errorHandler
   }
 
   /**
@@ -109,18 +115,6 @@ class Ghetto {
   }
 
   /**
-  * Errorhandler that uses config.errorHandler if defined
-  * if not it falls back to express default errorHandler
-  */
-  errorHandler(err, req, res, next) {
-    if(this.config.errorHandler) {
-      this.config.errorHandler(err, req, res, err)
-    } else {
-      next(err)
-    }
-  }
-
-  /**
   * Wrapper for route to catch all unhandled errors
   *
   * @param {Function} f - The route/middlware to be wrapped
@@ -129,7 +123,7 @@ class Ghetto {
   errorWrapper(f) {
     let wrapper = async function(req, res, next) {
       f(req, res, next).catch(err => {
-        this.errorHandler(err, req, res, next)
+        errorHandler(err, req, res, next)
       })
     }
     return wrapper
