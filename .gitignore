@@ -1,0 +1,7 @@
+*.swo
+*.swp
+*.map
+._*
+.~*
+node_modules
+.DS_Store

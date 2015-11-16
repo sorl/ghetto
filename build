@@ -1,0 +1,4 @@
+#!/bin/bash
+
+./node_modules/.bin/babel -o lib/ghetto.js --source-maps true src/ghetto.js
+cp src/config.js lib/config.js
