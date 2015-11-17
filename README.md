@@ -54,8 +54,8 @@ Run your first app using babel-node
 -----------------------------------
 ```
 cd testapp
-npm install ghetto babel-cli babel-plugin-transform-async-to-generator
-./node_modules/.bin/babel-node ghetto.js
+npm install ghetto babel-core babel-plugin-transform-async-to-generator
+ghetto run
 ```
 
 Navigate to [http://localhost:4100](http://localhost:4100)
