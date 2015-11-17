@@ -1,6 +1,6 @@
 Ghetto
 ======
-Javascript is a ghetto, we all know that. But it seems there is now way out,
+Javascript is a ghetto, we all know that. But it seems there is no way out,
 the ghetto gets larger and larger every day, more and more libraries open their
 doors, people from all backgrounds are moving in, even large respected
 companies seem to like the ghetto now. Ok, my imagination is over for now, let's
@@ -58,8 +58,10 @@ npm install ghetto babel-cli babel-plugin-transform-async-to-generator
 ./node_modules/.bin/babel-node ghetto.js
 ```
 
-Navigate to http://localhost:4100
-Now try http://localhost:4100/sleep
+Navigate to [http://localhost:4100](http://localhost:4100)
+
+Now try [http://localhost:4100/sleep](http://localhost:4100/sleep)
+
 Oops, open up the file `router.js`. This is where the routing is configured. Every
 row in the array is a route, the first position is the route (specified in the
 same way as in express.js), the second is the route function to call. There is
@@ -71,7 +73,7 @@ using ctrl+c and do `npm install sleep` and start the application again:
 ```
 ./node_modules/.bin/babel-node ghetto.js
 ```
-Try http://localhost:4100/sleep a second time.
+Try [http://localhost:4100/sleep](http://localhost:4100/sleep) a second time.
 
 
 
