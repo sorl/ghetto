@@ -59,10 +59,19 @@ npm install ghetto babel-cli babel-plugin-transform-async-to-generator
 ```
 
 Navigate to http://localhost:4100
-Now try http://localhost:4100/ohno
-Open up the file `router.js`. This is where the routing is configured. Every
+Now try http://localhost:4100/sleep
+Oops, open up the file `router.js`. This is where the routing is configured. Every
 row in the array is a route, the first position is the route (specified in the
 same way as in express.js), the second is the route function to call. There is
 also an optional third position where you can set allowed methods, by default
 only get is accepted, if you want to change allowed methods pass a comma
-separated string of methods, for example: `'get,post'`.
+separated string of methods, for example: `'get,post'`. Ok so now have a look
+in `routes/demo.js` There a `require('sleep')` causing our error. Break the application
+using ctrl+c and do `npm install sleep` and start the application again:
+```
+./node_modules/.bin/babel-node ghetto.js
+```
+Try http://localhost:4100/sleep a second time.
+
+
+
