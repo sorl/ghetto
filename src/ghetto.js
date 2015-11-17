@@ -20,20 +20,21 @@ let errorHandler = function(err, req, res, next) {
 */
 class Ghetto {
 
-  constructor(config, router) {
-    if(config) {
-      this.setup(config, router)
+  constructor(appDir) {
+    if(appDir) {
+      this.setup(appDir)
     }
   }
 
   /**
   * Sets up the ghetto instance
   *
-  * @param {Object} config - user configuration options
+  * @param {String} appDir - Application root directory
   */
-  setup(config, router) {
-    this.config = _.extend(defaultConfig, config)
-    this.router = router
+  setup(appDir) {
+    let userConfig = require(path.join(appDir, 'config'))
+    this.config = _.extend(defaultConfig, userConfig)
+    this.router = require(path.join(appDir, 'router'))
     this.setupApp()
     this.setupRoutes()
     this.setupMiddleware()
