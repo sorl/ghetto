@@ -62,14 +62,16 @@ Navigate to [http://localhost:4100](http://localhost:4100)
 
 Now try [http://localhost:4100/sleep](http://localhost:4100/sleep)
 
-Oops, open up the file `router.js`. This is where the routing is configured. Every
-row in the array is a route, the first position is the route (specified in the
-same way as in express.js), the second is the route function to call. There is
-also an optional third position where you can set allowed methods, by default
-only get is accepted, if you want to change allowed methods pass a comma
-separated string of methods, for example: `'get,post'`. Ok so now have a look
-in `routes/demo.js` There a `require('sleep')` causing our error. Break the application
-using ctrl+c and do `npm install sleep` and start the application again:
+Oops, open up the file `router.js`. This is where the routing is configured.
+Every row in the array is a route, the first position is the route path
+(specified in the same way as in express.js), the second is the either first
+route function (middleware) to call or a comma separated string with allowed
+methods, by default only get is accepted, if you want to change allowed methods
+pass something like `'get,post'`. You can append more middleware in the row
+after this. Middleware are called in the order as they appear. Ok so now have a
+look in `routes/demo.js` There a `require('sleep')` causing our error. Break the
+application using ctrl+c and do `npm install sleep` and start the application
+again:
 ```
 ./node_modules/.bin/babel-node ghetto.js
 ```
