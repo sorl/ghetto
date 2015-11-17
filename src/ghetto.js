@@ -89,7 +89,7 @@ class Ghetto {
   */
   setupMiddleware() {
     if(this.config.middleware) {
-      for(middleware of this.middleware) {
+      for(middleware of this.config.middleware) {
         this.app.use(this.errorWrapper(middleware))
       }
     }
