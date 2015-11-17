@@ -73,7 +73,7 @@ look in `routes/demo.js` There a `require('sleep')` causing our error. Break the
 application using ctrl+c and do `npm install sleep` and start the application
 again:
 ```
-./node_modules/.bin/babel-node ghetto.js
+ghetto run
 ```
 Try [http://localhost:4100/sleep](http://localhost:4100/sleep) a second time.
 
